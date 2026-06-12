@@ -17,6 +17,7 @@
       --accent: #3d3530;
       --tag-bg: #f2ede6;
       --gold: #b8965a;
+      --orange: #d4956a; /* 玉ねぎ麹用 */
     }
 
     html { scroll-behavior: smooth; }
@@ -232,6 +233,7 @@
     .color-shoyukoji  { background: #e8d8be; }
     .color-amazakoji  { background: #f0d8d4; }
     .color-ninniku    { background: #d4e8d4; }
+    .color-tamanegi   { background: #f0e4d0; }
 
     .card-cat-badge {
       position: absolute;
@@ -595,6 +597,7 @@
       <span>HIBINO KOJI RECIPE</span>
     </a>
     <div class="header-right">
+      <a href="../" style="font-size:12px; letter-spacing:0.1em; color:#888580;">トップページ</a>
       <a href="https://hanako04.base.shop/" target="_blank" class="header-shop">調味料を買う →</a>
     </div>
   </div>
@@ -607,6 +610,7 @@
       <span class="cat-link" onclick="filterCat('醤油麹', this)">醤油麹</span>
       <span class="cat-link" onclick="filterCat('甘麹', this)">甘麹</span>
       <span class="cat-link" onclick="filterCat('にんにく麹', this)">にんにく麹</span>
+      <span class="cat-link" onclick="filterCat('玉ねぎ麹', this)">玉ねぎ麹</span>
     </div>
   </div>
 </header>
@@ -641,6 +645,7 @@
         <li><a href="#" onclick="filterCat('醤油麹'); return false;">🫙 醤油麹<span class="count">2</span></a></li>
         <li><a href="#" onclick="filterCat('甘麹'); return false;">🍶 甘麹<span class="count">2</span></a></li>
         <li><a href="#" onclick="filterCat('にんにく麹'); return false;">🧄 にんにく麹<span class="count">2</span></a></li>
+        <li><a href="#" onclick="filterCat('玉ねぎ麹'); return false;">🧅 玉ねぎ麹<span class="count">1</span></a></li>
       </ul>
     </div>
 
@@ -692,201 +697,213 @@
 //    { } のかたまりをコピペして増やすだけでOK
 // ============================================================
 const recipes = [
+
+  // --- レシピ ---
   {
-    id: 1,
+    id: 9,
     category: "塩麹",
     color: "color-shiokoji",
-    emoji: "🐔",
-    title: "鶏むね肉の塩麹焼き",
-    desc: "塩麹に漬けるだけでびっくりするほどやわらかい！シンプルだけど絶品のメイン料理。",
-    time: "15分",
-    serving: "2人分",
-    level: "簡単",
-    tags: ["簡単", "お弁当"],
-    ingredients: [
-      { name: "鶏むね肉", amount: "1枚（300g）" },
-      { name: "塩麹", amount: "大さじ2" },
-      { name: "オリーブオイル", amount: "小さじ1" },
-    ],
-    steps: [
-      "鶏むね肉を薄くそぎ切りにする。",
-      "塩麹を全体によくなじませ、30分〜一晩漬け込む。",
-      "フライパンにオリーブオイルを熱し、中火で両面焼く（各3分）。",
-      "火が通ったら盛り付けて完成！",
-    ],
-    tip: "漬け込む時間が長いほどやわらかく仕上がります。前日に仕込むのがおすすめ！",
-  },
-  {
-    id: 2,
-    category: "塩麹",
-    color: "color-shiokoji",
-    emoji: "🥗",
-    title: "きゅうりの塩麹漬け",
-    desc: "10分でできる超簡単おつまみ。塩麹の旨みがきゅうりにしみてやみつきに。",
+    emoji: "🥕",
+    title: "にんじんと卵の塩麹炒め",
+    desc: "にんじんと卵のシンプルな炒め物。塩麹のやさしい味付けでごはんが進む一品。",
     time: "10分",
     serving: "2人分",
     level: "簡単",
-    tags: ["簡単", "時短", "おつまみ"],
+    tags: ["簡単", "時短", "お弁当"],
     ingredients: [
-      { name: "きゅうり", amount: "2本" },
-      { name: "塩麹", amount: "大さじ1" },
-      { name: "ごま油", amount: "少々" },
-      { name: "白ごま", amount: "お好みで" },
+      { name: "にんじん", amount: "1本" },
+      { name: "卵", amount: "1個" },
+      { name: "塩麹", amount: "小さじ1〜2" },
+      { name: "ごま油", amount: "小さじ1" },
+      { name: "ツナ缶", amount: "1/2缶（お好みで）" },
     ],
     steps: [
-      "きゅうりを乱切りにする。",
-      "ビニール袋にきゅうりと塩麹を入れてよく揉む。",
-      "10分おいて味をなじませる。",
-      "ごま油を少々たらして器に盛り、ごまをふって完成！",
+      "にんじんは千切りにする。卵は溶きほぐしておく。",
+      "フライパンにごま油を熱し、にんじんを炒める。",
+      "しんなりしたら（お好みでツナを加え）、塩麹で味付けをする。",
+      "溶き卵を回し入れ、全体を混ぜ合わせながら火を通す。",
     ],
-    tip: "冷蔵庫で1日おくとさらに美味しくなります。翌日のお弁当にも！",
+    tip: "",
   },
+
   {
-    id: 3,
+    id: 10,
+    category: "塩麹",
+    color: "color-shiokoji",
+    emoji: "🍛",
+    title: "さば缶カレー",
+    desc: "さば缶と塩麹でうまみたっぷり。手軽な材料で本格カレーが完成！",
+    time: "20分",
+    serving: "2〜3人分",
+    level: "簡単",
+    tags: ["簡単"],
+    ingredients: [
+      { name: "さば水煮缶", amount: "1缶（約200g）" },
+      { name: "玉ねぎ", amount: "1個" },
+      { name: "カット or ホールトマト缶", amount: "1缶（約400g）" },
+      { name: "塩麹", amount: "大さじ2" },
+      { name: "カレー粉", amount: "大さじ1と1/2" },
+      { name: "米油", amount: "大さじ1" },
+    ],
+    steps: [
+      "玉ねぎはみじん切りにする。",
+      "フライパンに米油を入れ、玉ねぎを中火で炒める。透き通ったらカレー粉を加え、全体をよく炒め合わせる。",
+      "さば水煮缶を缶汁ごと、トマト缶、塩麹を加えてさばをくずしながら全体をよく混ぜ合わせる。",
+      "中火で10分ほど煮込む。",
+    ],
+    tip: "",
+  },
+
+  {
+    id: 11,
+    category: "塩麹",
+    color: "color-shiokoji",
+    emoji: "🍚",
+    title: "塩麹わかめご飯",
+    desc: "炊飯器に入れるだけ！塩麹のうまみが染みたわかめご飯。",
+    time: "50分",
+    serving: "4人分",
+    level: "簡単",
+    tags: ["簡単"],
+    ingredients: [
+      { name: "米", amount: "2合" },
+      { name: "塩麹", amount: "大さじ2" },
+      { name: "カットわかめ", amount: "大さじ2" },
+      { name: "ごま", amount: "大さじ1" },
+    ],
+    steps: [
+      "炊飯器に米と塩麹を入れ、メモリまで水を入れたら軽く混ぜ合わせて炊き込む。",
+      "わかめは水で戻し、細かく刻んでおく。",
+      "炊きあがったご飯に、わかめとごまを入れ切るように混ぜたら完成。",
+    ],
+    tip: "しらすや鮭フレークを混ぜてもおいしく食べられます。",
+  },
+
+  {
+    id: 12,
     category: "醤油麹",
     color: "color-shoyukoji",
-    emoji: "🍳",
-    title: "醤油麹の卵かけご飯",
-    desc: "いつもの卵かけご飯が格上げに。醤油麹の旨みと甘みがたまらない朝ごはん。",
-    time: "5分",
-    serving: "1人分",
+    emoji: "🥚",
+    title: "味玉（醤油麹）",
+    desc: "醤油麹だけで旨みたっぷりの味玉。半熟に仕上げるのがおすすめ。",
+    time: "15分",
+    serving: "1〜2人分",
     level: "簡単",
-    tags: ["簡単", "時短", "朝ごはん"],
+    tags: ["簡単", "お弁当", "おつまみ"],
     ingredients: [
-      { name: "ご飯", amount: "1膳" },
       { name: "卵", amount: "1個" },
       { name: "醤油麹", amount: "小さじ1" },
     ],
     steps: [
-      "温かいご飯をお茶碗に盛る。",
-      "卵を割り入れる。",
-      "醤油麹を小さじ1のせて混ぜながらいただく。",
+      "卵を7〜8分茹でて殻をむく。",
+      "醤油麹と卵をポリ袋に入れてなじませる。",
+      "冷蔵庫で一晩漬けたら完成。",
     ],
-    tip: "お好みで刻みのりやネギをのせても美味しいです。",
+    tip: "醤油麹だけで旨みたっぷり。半熟に仕上げるのがおすすめ。",
   },
+
   {
-    id: 4,
-    category: "醤油麹",
-    color: "color-shoyukoji",
-    emoji: "🥩",
-    title: "豚バラ醤油麹炒め",
-    desc: "醤油麹の深い旨みが豚バラにしっかりなじむ。ご飯が止まらない一品！",
+    id: 13,
+    category: "塩麹",
+    color: "color-shiokoji",
+    emoji: "🥕",
+    title: "にんじんしりしり（塩麹）",
+    desc: "塩麹がにんじんの甘みを引き出す。調味料はこれだけでOKのシンプル炒め。",
     time: "15分",
     serving: "2人分",
-    level: "普通",
-    tags: ["お弁当"],
+    level: "簡単",
+    tags: ["簡単", "時短", "お弁当", "ヘルシー"],
     ingredients: [
-      { name: "豚バラ肉", amount: "200g" },
-      { name: "醤油麹", amount: "大さじ2" },
-      { name: "キャベツ", amount: "1/4個" },
+      { name: "にんじん", amount: "2本" },
+      { name: "塩麹", amount: "大さじ1.5" },
       { name: "ごま油", amount: "小さじ1" },
+      { name: "ツナ缶", amount: "適量" },
     ],
     steps: [
-      "豚バラ肉を食べやすい大きさに切り、醤油麹を揉み込んで10分おく。",
-      "キャベツをざく切りにする。",
-      "フライパンにごま油を熱し、豚バラを炒める。",
-      "肉に火が通ったらキャベツを加え、さっと炒めて完成！",
+      "にんじんを細切りにする。",
+      "ツナ缶を加えごま油で炒め、塩麹を加える。",
     ],
-    tip: "仕上げに醤油麹をちょっと足すと香りがアップします。",
+    tip: "塩麹がにんじんの甘みを引き出すので、調味料はこれだけでOK。",
   },
+
   {
-    id: 5,
-    category: "甘麹",
-    color: "color-amazakoji",
-    emoji: "🥤",
-    title: "甘麹スムージー",
-    desc: "砂糖不使用なのにやさしい甘さ。バナナと合わせるだけの栄養満点ドリンク。",
-    time: "5分",
-    serving: "1人分",
-    level: "簡単",
-    tags: ["簡単", "時短", "朝ごはん", "ヘルシー"],
-    ingredients: [
-      { name: "甘麹", amount: "大さじ3" },
-      { name: "バナナ", amount: "1本" },
-      { name: "牛乳（or豆乳）", amount: "150ml" },
-      { name: "氷", amount: "適量" },
-    ],
-    steps: [
-      "すべての材料をミキサーに入れる。",
-      "なめらかになるまで混ぜて完成！",
-    ],
-    tip: "凍らせたバナナを使うとアイス感がアップして夏にぴったり！",
-  },
-  {
-    id: 6,
-    category: "甘麹",
-    color: "color-amazakoji",
-    emoji: "🍗",
-    title: "甘麹の照り焼きチキン",
-    desc: "砂糖なしで自然な甘みとツヤが出る。麹の力でやわらかジューシーな仕上がり。",
-    time: "20分",
-    serving: "2人分",
-    level: "普通",
-    tags: ["お弁当"],
-    ingredients: [
-      { name: "鶏もも肉", amount: "1枚" },
-      { name: "甘麹", amount: "大さじ3" },
-      { name: "醤油", amount: "大さじ1" },
-      { name: "みりん", amount: "大さじ1" },
-    ],
-    steps: [
-      "鶏もも肉を甘麹・醤油・みりんで30分漬け込む。",
-      "フライパンを中火で熱し、皮目から焼く（5分）。",
-      "裏返してフタをして弱火で8分蒸し焼き。",
-      "漬けダレを加えて照りが出たら完成！",
-    ],
-    tip: "甘麹が砂糖の代わりになるので、みりんなしでも美味しくできます。",
-  },
-  {
-    id: 7,
-    category: "にんにく麹",
-    color: "color-ninniku",
-    emoji: "🍝",
-    title: "にんにく麹のパスタ",
-    desc: "にんにく麹ひとさじで本格イタリアンの味わいに。旨みが全然違う！",
-    time: "15分",
-    serving: "2人分",
-    level: "普通",
-    tags: ["時短"],
-    ingredients: [
-      { name: "パスタ", amount: "200g" },
-      { name: "にんにく麹", amount: "大さじ2" },
-      { name: "オリーブオイル", amount: "大さじ3" },
-      { name: "鷹の爪", amount: "1本" },
-      { name: "パセリ", amount: "適量" },
-    ],
-    steps: [
-      "パスタを表示通りに茹でる（茹で汁をとっておく）。",
-      "フライパンにオリーブオイルと鷹の爪を入れ弱火で熱する。",
-      "にんにく麹を加えてさっと炒める。",
-      "茹でたパスタと茹で汁少々を加えてよく混ぜる。",
-      "パセリをちらして完成！",
-    ],
-    tip: "にんにく麹に塩気があるので塩は控えめに。粉チーズも合います！",
-  },
-  {
-    id: 8,
-    category: "にんにく麹",
-    color: "color-ninniku",
-    emoji: "🥦",
-    title: "にんにく麹の野菜炒め",
-    desc: "炒め物の味付けはにんにく麹ひとつでOK。シンプルだけどプロっぽい仕上がりに。",
-    time: "10分",
+    id: 14,
+    category: "玉ねぎ麹",
+    color: "color-tamanegi",
+    emoji: "🍄",
+    title: "椎茸ポタージュ（玉ねぎ麹）",
+    desc: "玉ねぎ麹で深みのある旨みが出るのでコンソメ不要。椎茸の香りが引き立つやさしいスープ。",
+    time: "25分",
     serving: "2人分",
     level: "簡単",
-    tags: ["簡単", "時短", "ヘルシー"],
+    tags: ["簡単", "ヘルシー"],
     ingredients: [
-      { name: "ブロッコリー", amount: "1/2個" },
-      { name: "パプリカ", amount: "1個" },
-      { name: "にんにく麹", amount: "大さじ1.5" },
-      { name: "ごま油", amount: "大さじ1" },
+      { name: "椎茸", amount: "6〜8枚" },
+      { name: "玉ねぎ", amount: "1/2個" },
+      { name: "水", amount: "100ml" },
+      { name: "豆乳", amount: "200ml" },
+      { name: "玉ねぎ麹", amount: "大さじ1" },
+      { name: "バター", amount: "小さじ1" },
     ],
     steps: [
-      "野菜を食べやすいサイズに切る。",
-      "フライパンにごま油を熱し、野菜を炒める。",
-      "にんにく麹を加えてさっと混ぜ、全体になじんだら完成！",
+      "椎茸・玉ねぎを薄切りにしバターで炒める。",
+      "水を入れ弱火で5分煮る。",
+      "豆乳を加えブレンダーで撹拌し、玉ねぎ麹・適量の塩で味を調整する。",
     ],
-    tip: "お好みの野菜でアレンジOK。きのこ類を入れると旨みがさらにアップ！",
+    tip: "玉ねぎ麹で深みのある旨みが出るのでコンソメ不要。椎茸の香りが引き立ちます。",
+  },
+
+  {
+    id: 15,
+    category: "塩麹",
+    color: "color-shiokoji",
+    emoji: "🐟",
+    title: "塩麹＆にんにく麹のアクアパッツァ",
+    desc: "塩麹＆にんにく麹のダブル使いで旨みが格段にアップ。見た目も豪華な一品。",
+    time: "25分",
+    serving: "2人分",
+    level: "普通",
+    tags: ["おつまみ"],
+    ingredients: [
+      { name: "サーモン", amount: "2切れ" },
+      { name: "マッシュルーム", amount: "6個" },
+      { name: "ミニトマト", amount: "10個" },
+      { name: "シーフードミックス", amount: "100g" },
+      { name: "オリーブオイル", amount: "大さじ2" },
+      { name: "塩麹", amount: "大さじ1" },
+      { name: "にんにく麹", amount: "小さじ1" },
+      { name: "白ワインまたは酒", amount: "大さじ1" },
+    ],
+    steps: [
+      "サーモンに塩麹を塗り10分おく。",
+      "にんにく麹・オリーブオイルでサーモンを焼く。",
+      "具材・水を加えて蓋をして10分蒸し煮にする。",
+    ],
+    tip: "塩麹＆にんにく麹のダブル使いで旨みが格段にアップ。",
+  },
+
+  {
+    id: 16,
+    category: "塩麹",
+    color: "color-shiokoji",
+    emoji: "🍖",
+    image: "eebfd5bf-ac3f-4402-b18e-c8914b8c709c.png",
+    title: "塩麹鶏ハム",
+    desc: "塩麹が肉を柔らかくしてくれるので失敗なし。シンプルな材料で本格鶏ハム。",
+    time: "40分",
+    serving: "2〜3人分",
+    level: "簡単",
+    tags: ["お弁当", "ヘルシー"],
+    ingredients: [
+      { name: "鶏胸肉", amount: "1枚（約300g）" },
+      { name: "塩麹", amount: "大さじ1.5" },
+    ],
+    steps: [
+      "塩麹を全体にまぶし耐熱のポリ袋で一晩冷蔵庫へ。",
+      "大きめの鍋にお湯を沸騰させ火を止め、ポリ袋ごと入れ冷めるまで待つ。",
+      "食べやすく切り分けて完成。",
+    ],
+    tip: "塩麹が肉を柔らかくしてくれるので失敗なし。",
   },
 ];
 
@@ -912,10 +929,14 @@ function renderGrid(list) {
     card.onclick = () => openModal(r.id);
     card.innerHTML = `
       <div class="card-photo">
-        <div class="card-photo-inner ${r.color}">
-          <span class="card-cat-badge">${r.category}</span>
-          ${r.emoji}
-        </div>
+        ${r.image
+          ? `<img src="${r.image}" alt="${r.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`
+          : `<div class="card-photo-inner ${r.color}">
+               <span class="card-cat-badge">${r.category}</span>
+               ${r.emoji}
+             </div>`
+        }
+        ${r.image ? `<span class="card-cat-badge" style="position:absolute;top:10px;left:10px;">${r.category}</span>` : ''}
       </div>
       <p class="card-title">${r.title}</p>
       <div class="card-meta">
@@ -952,7 +973,10 @@ function openModal(id) {
   const r = recipes.find(r => r.id === id);
   if (!r) return;
   document.getElementById('modal-inner').innerHTML = `
-    <div class="modal-photo ${r.color}" style="font-size:80px;">${r.emoji}</div>
+    ${r.image
+      ? `<img src="${r.image}" alt="${r.title}" style="width:100%;height:240px;object-fit:cover;display:block;border-radius:0;">`
+      : `<div class="modal-photo ${r.color}" style="font-size:80px;">${r.emoji}</div>`
+    }
     <div class="modal-body">
       <p class="modal-cat">${r.category}</p>
       <h2 class="modal-title">${r.title}</h2>
