@@ -10,21 +10,26 @@
 
     :root {
       --white: #ffffff;
-      --bg: #fffaf0;          /* あたたかいクリーム */
-      --border: #f0e2c8;      /* やわらかいベージュ */
-      --text: #4a3b28;        /* こげ茶 */
-      --sub: #a08c6e;         /* うすい茶 */
-      --accent: #e0952f;      /* 麹オレンジ */
-      --accent-dark: #c07f24;
-      --tag-bg: #fdf3e0;
-      --gold: #d99c3a;
+      --bg: #faf7f2;          /* ナチュラルな生成り */
+      --border: #e6ded2;      /* やわらかいベージュ */
+      --text: #4a4238;        /* こげ茶 */
+      --sub: #a2968a;         /* グレージュ */
+      --accent: #8a7a6a;      /* モカブラウン（ブランドカラー） */
+      --accent-dark: #6e6052;
+      --tag-bg: #f2ede5;
+      --gold: #a08c72;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Hiragino Maru Gothic ProN', 'Yu Gothic UI', 'Hiragino Sans', sans-serif;
-      background: var(--bg);
+      /* サイト全体をリネン（布）質感に */
+      background:
+        repeating-linear-gradient(0deg, rgba(150,132,108,0.05) 0px, rgba(150,132,108,0.05) 1px, transparent 1px, transparent 3px),
+        repeating-linear-gradient(90deg, rgba(150,132,108,0.06) 0px, rgba(150,132,108,0.06) 1px, transparent 1px, transparent 3px),
+        linear-gradient(180deg, #f6f1e7 0%, #f2ecdf 100%);
+      background-attachment: fixed;
       color: var(--text);
       line-height: 1.8;
     }
@@ -143,11 +148,17 @@
 
     /* ===== ヒーローバナー ===== */
     .hero-banner {
-      background: var(--white);
+      background: transparent;
       border-bottom: 3px dotted var(--border);
-      padding: 64px 24px 48px;
+      padding: 48px 24px 40px;
       text-align: center;
       position: relative;
+    }
+
+    .hero-logo {
+      width: min(300px, 64vw);
+      height: auto;
+      margin-bottom: 24px;
     }
 
     .hero-banner h1 {
@@ -241,7 +252,7 @@
     .recipe-card:hover {
       transform: translateY(-5px);
       border-color: var(--accent);
-      box-shadow: 0 10px 24px rgba(224,149,47,0.16);
+      box-shadow: 0 10px 24px rgba(138,122,106,0.18);
     }
 
     .card-photo {
@@ -284,11 +295,11 @@
     }
 
     /* カテゴリー別の色 */
-    .color-shiokoji   { background: #dcecf3; }
-    .color-shoyukoji  { background: #ecdcbe; }
-    .color-amazakoji  { background: #f6dcd8; }
-    .color-ninniku    { background: #d8ecd8; }
-    .color-tamanegi   { background: #f6e8d0; }
+    .color-shiokoji   { background: #dde7ea; }
+    .color-shoyukoji  { background: #e7dcc6; }
+    .color-amazakoji  { background: #eeded8; }
+    .color-ninniku    { background: #dde7da; }
+    .color-tamanegi   { background: #ece3d0; }
 
     .card-cat-badge {
       position: absolute;
@@ -726,10 +737,10 @@
 
 <!-- ヒーローバナー -->
 <div class="hero-banner">
-  <p class="hero-deco">🧂 🫙 🍶 🧄 🧅</p>
+  <img src="logo-clear.png" alt="日々ノ麹" class="hero-logo">
   <h1>調味料は3つまで。<br>がんばらない食卓に、麹をひとさじ。</h1>
   <p>塩麹・醤油麹・甘麹・にんにく麹を使った、シンプルでかんたんなレシピ集。<br>素材の旨みを引き出す麹の力で、いつもの料理がひとつ上の味に。</p>
-  <p style="font-size:11px; color:#c4b294; margin-top:16px;">※ 油・だしは調味料に数えていません。「お好みで」の材料はなくても作れます。</p>
+  <p style="font-size:11px; color:#b5a996; margin-top:16px;">※ 油・だしは調味料に数えていません。「お好みで」の材料はなくても作れます。</p>
   <p class="hero-scroll">▼ SCROLL</p>
 </div>
 
@@ -1000,7 +1011,6 @@ const recipes = [
     category: "塩麹",
     color: "color-shiokoji",
     emoji: "🍖",
-    image: "eebfd5bf-ac3f-4402-b18e-c8914b8c709c.png",
     title: "塩麹鶏ハム",
     desc: "塩麹が肉を柔らかくしてくれるので失敗なし。シンプルな材料で本格鶏ハム。",
     time: "40分",
