@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>麹レシピ | HIBINO KOJI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
   <style>
     /* ===== 図鑑スタイル（みかんな図鑑風） ===== */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -162,12 +165,14 @@
     }
 
     .hero-banner h1 {
-      font-size: clamp(26px, 4vw, 40px);
-      font-weight: 800;
+      font-family: 'Klee One', 'Hiragino Maru Gothic ProN', sans-serif;
+      font-weight: 600;
+      font-size: clamp(22px, 3.4vw, 34px);
+      font-weight: 400;
       color: var(--text);
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       margin-bottom: 16px;
-      line-height: 1.6;
+      line-height: 1.8;
     }
 
     .hero-banner p {
@@ -256,11 +261,11 @@
     }
 
     .card-photo {
-      width: 100%;
+      width: 55%;                 /* 画像はカード幅の約半分 */
       aspect-ratio: 1 / 1;
       position: relative;
       overflow: hidden;
-      margin-bottom: 12px;
+      margin: 8px auto 12px;      /* 中央寄せ */
       border-radius: 16px;
     }
 
@@ -303,16 +308,18 @@
 
     .card-cat-badge {
       position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: 10px;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.08em;
-      padding: 4px 12px;
-      background: rgba(255,255,255,0.92);
-      color: var(--text);
+      padding: 3px 10px;
+      background: var(--tag-bg);
+      color: var(--accent-dark);
       border-radius: 999px;
       z-index: 1;
+      white-space: nowrap;
     }
 
     .card-title {
@@ -936,6 +943,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🍄",
     title: "玉ねぎ麹の椎茸ポタージュ",
+    image: "shiitake-potage.jpg",
     desc: "玉ねぎ麹で深みのある旨みが出るのでコンソメ不要。椎茸の香りが引き立つやさしいスープ。",
     time: "25分",
     serving: "2人分",
@@ -1053,6 +1061,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🥗",
     title: "醤油麹の大根サラダ",
+    image: "daikon-salad.jpg",
     desc: "しょうゆ麹とかつお粉の旨みでデパ地下風の味わいに。シャキシャキ食感がうれしい、たっぷり食べられるサラダ。",
     time: "10分",
     serving: "4〜5人分",
@@ -1080,6 +1089,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🥣",
     title: "玉ねぎ麹の和風ドレッシング",
+    image: "wafu-dressing.jpg",
     desc: "玉ねぎ麹の旨みにみそのコクをプラス。まぜるだけで完成する、野菜がもりもり食べられる和風だれ。",
     time: "3分",
     serving: "1回分",
@@ -1103,6 +1113,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🥗",
     title: "玉ねぎ麹の洋風ドレッシング",
+    image: "yofu-dressing.jpg",
     desc: "オリーブオイルと玉ねぎ麹で作る本格ドレッシング。グリーンサラダやカルパッチョにぴったり。",
     time: "3分",
     serving: "1回分",
@@ -1191,6 +1202,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🍚",
     title: "鮭とごぼうの醤油麹炊き込みご飯",
+    image: "takikomi.jpg",
     desc: "しょうゆ麹に漬けた鮭の旨みがご飯にじんわり。ごぼうとまいたけの香りで、おかわりが止まらない秋の味。",
     time: "60分",
     serving: "3〜4人分",
@@ -1222,6 +1234,7 @@ const recipes = [
     color: "color-shiokoji",
     emoji: "🐟",
     title: "鯖の塩麹カレー焼き",
+    image: "saba-curryyaki.jpg",
     desc: "塩麹とカレー粉の黄金コンビ。米粉でカリッと揚げ焼きにした、子どもも大好きなさばおかず。",
     time: "25分",
     serving: "2人分",
@@ -1310,6 +1323,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🍗",
     title: "鶏と野菜の玉ねぎ麹オーブン焼き",
+    image: "oven-yaki.jpg",
     desc: "塩麹＆玉ねぎ麹のダブル麹使い！オーブンにお任せで、ごちそう感たっぷりの一皿が完成します。",
     time: "60分",
     serving: "3〜4人分",
@@ -1342,6 +1356,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🥒",
     title: "大根の醤油麹浅漬け",
+    image: "daikon-asazuke.jpg",
     desc: "袋で揉んで冷やすだけ。醤油麹の旨みと昆布のだしがじんわりしみた、あと一品にうれしい浅漬け。",
     time: "10分",
     serving: "作りやすい量",
@@ -1367,6 +1382,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🧈",
     title: "玉ねぎ麹の香草バター",
+    image: "koso-butter.jpg",
     desc: "パセリと玉ねぎ麹を混ぜ込んだ、旨みたっぷりの香草バター。パンにも肉にも魚にも合う万能ストック。",
     time: "10分",
     serving: "作りやすい量",
@@ -1391,6 +1407,7 @@ const recipes = [
     color: "color-amazakoji",
     emoji: "🍖",
     title: "お肉の甘麹ほろほろ焼き",
+    image: "horohoro.jpg",
     desc: "炊飯器にお任せするだけで、お肉がほろほろに！鶏・豚・牛、どんなお肉でも作れる魔法のレシピ。",
     time: "5分（＋炊飯時間）",
     serving: "2人分",
@@ -1416,6 +1433,7 @@ const recipes = [
     color: "color-ninniku",
     emoji: "🥬",
     title: "ほうれん草のにんにく麹ごま和え",
+    image: "gomaae.jpg",
     desc: "にんにく麹とすりごまだけで味が決まる、あと一品にうれしい和えもの。小松菜やいんげんなど、お好きな野菜でどうぞ。",
     time: "10分",
     serving: "2〜3人分",
@@ -1440,6 +1458,7 @@ const recipes = [
     color: "color-ninniku",
     emoji: "🌱",
     title: "にんにく麹の万能ナムル",
+    image: "ninniku-namuru.jpg",
     desc: "にんにく麹とごま油があれば、あっという間に本格ナムル。もやしでも、にんじんでも、お好きな野菜で作れます。",
     time: "10分",
     serving: "2〜3人分",
@@ -1542,6 +1561,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🥩",
     title: "豚の醤油麹生姜焼き",
+    image: "shogayaki.jpg",
     desc: "醤油麹とみりんのタレに揉み込むだけ。麹の力でお肉やわらか、コク旨な定番おかずです。",
     time: "20分",
     serving: "2人分",
@@ -1569,6 +1589,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🥢",
     title: "オクラとめかぶの醤油麹あえ",
+    image: "okra-mekabu.jpg",
     desc: "和えるだけ5分、調味料は醤油麹ひとつ。ネバネバ×麹の力で、ごはんにも豆腐にもかけたい健康副菜。",
     time: "5分",
     serving: "2人分",
@@ -1592,6 +1613,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🌽",
     title: "醤油麹バターコーン",
+    image: "butter-corn.jpg",
     desc: "バターの香りに醤油麹の香ばしい旨み。子どもも大人もやみつきになる、5分でできる鉄板おかず。",
     time: "5分",
     serving: "2人分",
@@ -1617,6 +1639,7 @@ const recipes = [
     color: "color-amazakoji",
     emoji: "🍨",
     title: "甘麹アイス",
+    image: "ama-ice.jpg",
     desc: "甘みは甘麹だけ。混ぜて凍らせるだけなのに、驚くほどコクのあるやさしい甘さのアイスができます。",
     time: "10分（冷凍時間別）",
     serving: "3〜4人分",
@@ -1641,6 +1664,7 @@ const recipes = [
     color: "color-amazakoji",
     emoji: "🍞",
     title: "甘麹ラスク",
+    image: "rusk.jpg",
     desc: "材料は3つだけ。甘麹を塗って焼くだけで、素朴でやさしい甘さのヘルシーラスクが完成します。",
     time: "20分",
     serving: "2〜3人分",
@@ -1665,6 +1689,7 @@ const recipes = [
     color: "color-amazakoji",
     emoji: "🥕",
     title: "甘麹ひじき煮",
+    image: "hijiki.jpg",
     desc: "砂糖もみりんも使わず、甘みは甘麹におまかせ。ふっくらやさしい味の、毎日食べたい常備菜です。",
     time: "20分",
     serving: "3〜4人分",
@@ -1693,6 +1718,7 @@ const recipes = [
     color: "color-amazakoji",
     emoji: "🍓",
     title: "フルーツ甘酒",
+    image: "fruit-amazake.jpg",
     desc: "甘麹とお好きなフルーツをまぜるだけ。砂糖なしで満足感たっぷりの、飲むデザートです。",
     time: "5分",
     serving: "1人分",
@@ -1717,6 +1743,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🌶️",
     title: "玉ねぎ麹の麻婆豆腐",
+    image: "mabo.jpg",
     desc: "玉ねぎ麹とみそだけで、コク深い本格麻婆に。辛くないので子どももOK、大人はラー油をプラスして。",
     time: "20分",
     serving: "2人分",
@@ -1747,6 +1774,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🍚",
     title: "玉ねぎ麹のツナチャーハン",
+    image: "chahan.jpg",
     desc: "味つけの主役は玉ねぎ麹。旨みたっぷりなのにやさしい味わいの、パパッと作れるお助けごはん。",
     time: "10分",
     serving: "2人分",
@@ -1776,6 +1804,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🥚",
     title: "玉ねぎ麹の卵スープ",
+    image: "tamago-soup.jpg",
     desc: "だしもコンソメもいらない、調味料は玉ねぎ麹ひとつ。体にしみわたる、やさしい味の即席スープ。",
     time: "10分",
     serving: "2人分",
@@ -1801,6 +1830,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🍵",
     title: "玉ねぎ麹の即席みそ汁",
+    image: "misoshiru.jpg",
     desc: "お椀に入れてお湯を注ぐだけ、だし不要。忙しい朝の味方になる、究極にかんたんなみそ汁です。",
     time: "2分",
     serving: "1人分",
@@ -1825,6 +1855,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🍜",
     title: "玉ねぎ麹のきのこうどん",
+    image: "kinoko-udon.jpg",
     desc: "干し椎茸のだしと玉ねぎ麹の旨みが溶け合う、ほっとする味。胃腸にやさしい、体いたわりうどんです。",
     time: "20分（椎茸の戻し時間別）",
     serving: "2人分",
@@ -1980,6 +2011,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🥚",
     title: "醤油麹のたまごかけごはん",
+    image: "tkg.jpg",
     desc: "いつものお醤油を醤油麹に変えるだけ。とろりとした麹がごはんとたまごに絡み、濃厚な旨みが口いっぱいに広がります。",
     time: "3分",
     serving: "1人分",
@@ -2002,6 +2034,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🥄",
     title: "醤油麹の3種万能だれ",
+    image: "shoyu-tare3.jpg",
     desc: "これさえあれば味付けに迷わない！作り置きにも便利な特製だれ。",
     time: "3分",
     serving: "作りやすい量",
@@ -2026,6 +2059,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🥒",
     title: "きゅうりの醤油麹一本漬け",
+    image: "kyuri-ippon.jpg",
     desc: "ポリ袋に入れて揉むだけで、味がしっかり染み込んだ、美味しい即席漬物が完成。醤油麹の酵素が、きゅうりの食感をパリパリに保ちます。",
     time: "10分",
     serving: "1人分",
@@ -2048,6 +2082,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🍗",
     title: "鶏の醤油麹照り焼き",
+    image: "tori-teriyaki.jpg",
     desc: "醤油麹の力でお肉やわらか、味しっかり。お弁当に入れても冷めても美味しい定番おかずです。",
     time: "25分（漬け時間別）",
     serving: "2人分",
@@ -2076,6 +2111,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🐟",
     title: "ぶりの醤油麹照り焼き",
+    image: "buri-teriyaki.jpg",
     desc: "醤油麹に漬け込むことで、魚の臭みが消え、身はふっくら。",
     time: "15分（漬け時間別）",
     serving: "2人分",
@@ -2099,6 +2135,7 @@ const recipes = [
     color: "color-shoyukoji",
     emoji: "🍣",
     title: "醤油麹漬け丼",
+    image: "zukedon.jpg",
     desc: "お好みのお刺身を麹だれにさっと和えるだけ。麹の旨みでワンランク上の漬け丼に。",
     time: "15分",
     serving: "2人分",
@@ -2124,6 +2161,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🥗",
     title: "玉ねぎ麹の3種万能ドレッシング",
+    image: "tama-dressing3.jpg",
     desc: "混ぜるだけで完成する3つの味。サラダからマリネ、ディップまで大活躍の黄金比です。",
     time: "3分",
     serving: "作りやすい量",
@@ -2148,6 +2186,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🍳",
     title: "玉ねぎ麹のスクランブルエッグ",
+    image: "scramble.jpg",
     desc: "玉ねぎ麹の旨みで、いつもの卵がホテルの朝食みたいなとろとろふわふわに。チーズやハムを加えても絶品！",
     time: "5分",
     serving: "1〜2人分",
@@ -2173,6 +2212,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🍖",
     title: "鶏肉の玉ねぎ麹ステーキ",
+    image: "tori-steak.jpg",
     desc: "玉ねぎの甘みと旨味が染み込み、冷めても美味しいのでお弁当にも最適です。",
     time: "20分（漬け時間別）",
     serving: "1枚分",
@@ -2198,6 +2238,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🍄",
     title: "玉ねぎ麹のマッシュルームポタージュ",
+    image: "mushroom-potage.jpg",
     desc: "玉ねぎ麹が、コンソメを使わなくても十分なコクと旨味の土台を作ってくれます。",
     time: "30分",
     serving: "2人分",
@@ -2228,6 +2269,7 @@ const recipes = [
     color: "color-tamanegi",
     emoji: "🥘",
     title: "玉ねぎ麹の和風ポトフ",
+    image: "wafu-potofu.jpg",
     desc: "だしと玉ねぎ麹のやさしい旨みで、野菜の甘みがしみじみ美味しい和風ポトフです。",
     time: "30分",
     serving: "2〜3人分",
@@ -2255,6 +2297,7 @@ const recipes = [
     color: "color-ninniku",
     emoji: "🧄",
     title: "にんにく麹の万能だれ4種",
+    image: "ninniku-tare4.jpg",
     desc: "混ぜるだけで、いつもの食材がごちそうに。ナムルから香味だれまで、覚えておきたい4つの黄金比。",
     time: "3分",
     serving: "作りやすい量",
@@ -2281,6 +2324,7 @@ const recipes = [
     color: "color-ninniku",
     emoji: "🥩",
     title: "にんにく麹のガリバタポークステーキ",
+    image: "garibata-pork.jpg",
     desc: "にんにく麹の旨みとバターの香りで、ごはんが止まらないガッツリメイン。一晩漬けるとさらに柔らかく。",
     time: "20分（漬け時間別）",
     serving: "1枚分",
@@ -2310,6 +2354,7 @@ const recipes = [
     color: "color-ninniku",
     emoji: "🥟",
     title: "にんにく麹餃子",
+    image: "gyoza.jpg",
     desc: "にんにく麹の旨みがしっかり効いているので、タレなしでも美味しくいただけます。",
     time: "40分",
     serving: "25個分",
